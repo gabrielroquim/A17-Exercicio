@@ -1,5 +1,5 @@
-const homeScreen = require("../pages/screens/home.screen");
-const loginScreen = require("../pages/screens/login.screen");
+const homeScreen = require("../screens/home.screen");
+const loginScreen = require("../screens/login.screen");
 
 describe('Access Admin Panel', () => {
     it('should login with valid credentials', async () => {
@@ -7,6 +7,8 @@ describe('Access Admin Panel', () => {
         await loginScreen.setStoreAddress('http://lojaebac.ebaconline.art.br/')
         await loginScreen.continue()
         await loginScreen.login('gerente','GD*peToHNJ1#c$sgk08EaYJQ')
+        await loginScreen.goToTwoFactorAuth()
+        
 
       
         }
