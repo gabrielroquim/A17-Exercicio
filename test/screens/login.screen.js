@@ -32,12 +32,12 @@ class LoginScreen {
     async goToTwoFactorAuth() {
         await this.#twoFactorPasswordBtn.click()
     }
-async twoFactorLogin(password){
-    await this.#password.setValue(password)
-    await this.#continue.click()
+    
+    async twoFactorLogin(password) {
+        await this.#password.setValue(password)
+        await this.#continue.click()
+    }
 
 }
 
-}
-
-module.exports = new LoginScreen
+module.exports = new LoginScreen()

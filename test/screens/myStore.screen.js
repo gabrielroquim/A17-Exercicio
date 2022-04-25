@@ -1,13 +1,13 @@
 class MyStoreScreen {
-    get #enterStoreAddress(){
-        return $('id:button_login_store')
+    get #myStoreName(){
+        return $('id:toolbar_subtitle')
     }
 
-async goToLogin(){
-    this.#enterStoreAddress.click()
+async getStoreName(){
+   return await  this.#myStoreName.getText()
 }
 
 
 }
 
-module.exports = new MyStoreScreen
+module.exports = new MyStoreScreen()
