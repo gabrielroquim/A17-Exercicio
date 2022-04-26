@@ -1,5 +1,6 @@
 const { join } = require('path')
 const allure = require('allure-commandline')
+
 exports.config = {
     hostname: 'localhost',
     port: 4723,
@@ -22,12 +23,14 @@ exports.config = {
         timeout: 300000
     },
     reporters: ['spec',
-        ['allure', {
-            outputDir: 'allure-results',
-            disableWebdriverStepsReporting: false,
-            disableWebdriverScreenshotsReporting: false,
-        }],
-    ],
+    ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]
+],
+
+
     onComplete: function () {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])
