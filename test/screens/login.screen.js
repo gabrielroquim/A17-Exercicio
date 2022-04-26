@@ -20,7 +20,8 @@ class LoginScreen {
     }
 
     async continue() {
-        await this.#continueStoreAddressCredentials.click()
+        await this.#continueStoreAddressCredentials.waitForExist()
+      return await this.#continueStoreAddressCredentials.click()
     }
 
     async login(username, password) {
