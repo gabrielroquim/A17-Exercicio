@@ -1,10 +1,12 @@
 const { join } = require('path')
 const allure = require('allure-commandline')
+const video = require('wdio-video-reporter')
 
 exports.config = {
-    hostname: 'localhost',
+   // hostname: 'localhost',
     port: 4723,
-    path: '/wd/hub',
+   // path: '/wd/hub',
+   services: ['appium'],
     specs: [
         './test/specs/**/*.spec.js'
     ],
@@ -27,6 +29,10 @@ exports.config = {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: true,
+        }],
+        [video, {
+            saveAllVideos: true,      
+            videoSlowdownMultiplier: 50, 
         }]
     ],
     onComplete: function () {
