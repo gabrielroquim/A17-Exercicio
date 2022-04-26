@@ -1,7 +1,7 @@
 class MyStoreScreen {
 
     get #myStoreLogo() {
-        return $('~My Store')
+        return $('~My store')
     }
 
     get #myStoreName() {
@@ -13,7 +13,7 @@ class MyStoreScreen {
     }
 
     async myStoreLogoDisplayed() {
-        await this.#myStoreLogo.waitForExist()
+        await this.#myStoreLogo.waitForExist({ timeout: 20000 })
         return await this.#myStoreLogo.isDisplayed()
     }
 

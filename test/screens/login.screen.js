@@ -16,11 +16,12 @@ class LoginScreen {
     }
 
     async continue() {
-        await this.#continue.click()
+        await this.#continue.waitForExist()
+      return await this.#continue.click()
     }
 
-    async continue() {
-        await this.#continueStoreAddressCredentials.waitForExist()
+    async continueCredentials() {
+        await this.#continueStoreAddressCredentials.waitForExist({ timeout: 20000 })
       return await this.#continueStoreAddressCredentials.click()
     }
 
