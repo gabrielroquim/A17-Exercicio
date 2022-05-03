@@ -7,7 +7,6 @@ class HomeScreen {
         await this.#enterStoreAddress.click()
     }
 
-
 }
 
 module.exports = new HomeScreen()
