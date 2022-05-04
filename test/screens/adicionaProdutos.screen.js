@@ -1,7 +1,7 @@
 class AdicProdutosScreen {
     get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
     get #nomeProduto() { return $('id=editText') }
-    get #addDescricaoProduto() { return $('//android.widget.ImageView[@content-desc="Edit product"])[1]') }
+    get #addDescricaoProduto() { return $('~Edit product') }
     get #descriptionProduto() { return $('id=visualEditor') }
     get #voltarMenu() { return $('~Navigate up') }
     get #addPriceProduct() { return $('android=new UiSelector().text("Add price").className("android.widget.TextView")') }

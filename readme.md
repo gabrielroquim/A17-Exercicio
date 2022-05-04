@@ -13,3 +13,5 @@ Durante os testes ocorreram alguns com o emulador tais como: Não estava conecta
 
  Na maioria dos async use a expressão (waitForExist), pois wdio nao consegue ou não tem a função de aguardar a espera de um btn surgir
 
+ Na pasta adicionaProduto na função get para clicar em adicionar uma descrição usei o path, contudo não foi possivel o wdio clicar ou encontrar .
+
