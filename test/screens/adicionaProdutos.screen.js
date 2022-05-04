@@ -12,7 +12,7 @@ class AdicProdutosScreen {
 
    
     async clickSimplePhyProduct() {
-        await this.#simplePhyProduct.waitForExist({ timeout: 2000 })
+        await this.#simplePhyProduct.waitForExist({ timeout: 20000 })
         return await this.#simplePhyProduct.click()
     }
     async typeName(nome) { return await this.#nomeProduto.setValue(nome) }

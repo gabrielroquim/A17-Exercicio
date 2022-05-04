@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1651705170713' stop='1651705196881'>
+    <name>Access Admin Panel</name>
+    <title>Access Admin Panel</title>
+    <test-cases>
+        <test-case start='1651705170713' status='broken' stop='1651705196871'>
+            <name>should login with valid credentials</name>
+            <title>should login with valid credentials</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='TesteEbacs 12.0-12'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='d77ac898-9c61-4a8d-bfb6-0b10297558cd-attachment.mp4' type='video/mp4' size='221'/>
+            </attachments>
+            <failure>
+                <message>adicionaProdutosScreen.clickMais is not a function</message>
+                <stack-trace>TypeError: adicionaProdutosScreen.clickMais is not a function
+                    at Context.&lt;anonymous> (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\test\specs\cadastroProduto.spec.js:26:38)
+                    at processTicksAndRejections (node:internal/process/task_queues:96:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
