@@ -1,7 +1,4 @@
-class AdicProdutosScreen {
-
-    get #addProdutos() { return $('id:products') }
-    get #btnMais() { return $('id:addProductButton') }
+class AdicProdutosScreen {   
     get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
     get #nomeProduto() { return $('id=editText') }
     get #addDescricaoProduto() { return $('///android.widget.ImageView[@content-desc="Edit product"])[1]') }
@@ -11,13 +8,9 @@ class AdicProdutosScreen {
     get #priceProduto() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
     get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
-get #btnPublish(){return $('id=menu_publish')}
+    get #btnPublish() { return $('id=menu_publish') }
 
-    async clickAddProdutos() {
-        await this.#addProdutos.waitForExist({ timeout: 2000 }) // no módulo 17 ulitma aula professor explica sobre wait
-        return await this.#addProdutos.click()
-    }
-    async clickMais() { return await this.#btnMais.click() }
+   
     async clickSimplePhyProduct() {
         await this.#simplePhyProduct.waitForExist({ timeout: 2000 })
         return await this.#simplePhyProduct.click()
@@ -33,7 +26,7 @@ get #btnPublish(){return $('id=menu_publish')}
         await this.#typePriceProduct.clearValue()
         return await this.#textRegularPrice.setValue(valor)
     }
-    async clickPublish(){
+    async clickPublish() {
         await this.#btnPublish.click()
     }
 }

@@ -21,6 +21,8 @@ describe('Access Admin Panel', () => {
         await loginScreen.login(usuario, senha)
         await loginScreen.goToTwoFactorAuth()
         await loginScreen.twoFactorLogin(senha)
+        await myStoreScreen.clickAddProdutos()
+        await myStoreScreen.popup()
         await adicionaProdutosScreen.clickMais()
         await adicionaProdutosScreen.clickSimplePhyProduct()
         await adicionaProdutosScreen.typeName(nome)

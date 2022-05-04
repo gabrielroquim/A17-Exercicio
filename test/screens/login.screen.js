@@ -1,5 +1,3 @@
-
-
 class LoginScreen {
     
     get #StoreAddress() { return $('android.widget.EditText') }
@@ -11,25 +9,20 @@ class LoginScreen {
 
 
     async setStoreAddress(url) { this.#StoreAddress.setValue(url) }
-
     async continue() {
         await this.#continue.waitForExist()
         return await this.#continue.click()
     }
-
     async continueCredentials() {
         await this.#continueStoreAddressCredentials.waitForExist({ timeout: 20000 })
         return await this.#continueStoreAddressCredentials.click()
     }
-
     async login(username, password) {
         await this.#userName.setValue(username)
         await this.#password.setValue(password)
         await this.#continue.click()
     }
-
     async goToTwoFactorAuth() { await this.#twoFactorPasswordBtn.click() }
-
     async twoFactorLogin(password) {
         await this.#password.setValue(password)
         await this.#continue.click()
