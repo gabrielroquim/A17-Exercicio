@@ -10,6 +10,7 @@ let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let nome = "camisa sonic 2"
 let descricao = "Novo filme do Sonic"
 let valor = "98"
+let valor2 = "85"
 
 
 describe('Access Admin Panel', () => {
@@ -30,7 +31,7 @@ describe('Access Admin Panel', () => {
         await adicionaProdutosScreen.getVoltar()
         await adicionaProdutosScreen.goPrice()
         await adicionaProdutosScreen.clickPriceProduto()
-        await adicionaProdutosScreen.typePrice(valor)
+        await adicionaProdutosScreen.typePrice(valor, valor2)
         await adicionaProdutosScreen.clickPublish()
 
         expect(await myStoreScreen.myStoreLogoDisplayed()).toBeTruthy()

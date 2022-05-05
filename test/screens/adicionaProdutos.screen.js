@@ -7,6 +7,7 @@ class AdicProdutosScreen {
     get #addPriceProduct() { return $('android=new UiSelector().text("Add price").className("android.widget.TextView")') }
     get #priceProduto() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
+    get #textSalePrice() { return $('android=new UiSelector().text("Sale price").className("android.widget.EditText")') }
     get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #btnPublish() { return $('id=menu_publish') }
 
@@ -26,13 +27,18 @@ class AdicProdutosScreen {
     async getVoltar() { return await this.#voltarMenu.click() }
     async goPrice() { return await this.#addPriceProduct.click() }
     async clickPriceProduto() { return await this.#priceProduto.click() }
-    async typePrice(valor) {
+    async typePrice(valor, valor2) {
         await this.#typePriceProduct.click()
         await this.#typePriceProduct.clearValue()
-        return await this.#textRegularPrice.setValue(valor)
+        await this.#textRegularPrice.setValue(valor)
+        await this.#textSalePrice.click()
+        await this.#textSalePrice.clearValue()
+        await this.#textSalePrice(valor2)
+
     }
     async clickPublish() {
-        await this.#btnPublish.click()
+        await this.#btnPublish.waitForExist({ timeout: 20000 })
+       return await this.#btnPublish.click()
     }
 }
 module.exports = new AdicProdutosScreen
