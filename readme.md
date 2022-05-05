@@ -15,3 +15,6 @@ Durante os testes ocorreram alguns com o emulador tais como: Não estava conecta
 
  Na pasta adicionaProduto na função get para clicar em adicionar uma descrição usei o path, contudo não foi possivel o wdio clicar ou encontrar .
 
+ # Price
+ -- Adicionei o campo ( clearSale) para limpar o valor que ja contem no campo
+
