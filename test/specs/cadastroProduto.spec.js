@@ -16,7 +16,7 @@ let sku = Math.floor(Math.random() * 65536)
 
 describe('Access Admin Panel', () => {
     it('should login with valid credentials', async () => {
-        await homeScreen.goToLogin()
+        await loginScreen.goToLogin()
         await loginScreen.setStoreAddress(urlLoja)
         await loginScreen.continue()
         await loginScreen.continueCredentials()
@@ -38,7 +38,7 @@ describe('Access Admin Panel', () => {
         await adicionaProdutosScreen.clickSKU(sku)
         await adicionaProdutosScreen.clickVoltarProduct()
         await adicionaProdutosScreen.clickPublish()
-        await myStoreScreen.store()
+      
 
 
         // vai fazer 

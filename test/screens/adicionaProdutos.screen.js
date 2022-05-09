@@ -14,6 +14,7 @@ class AdicProdutosScreen {
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
     get #voltarProductInventory() { return $('~Navigate up') }
     get #btnPublish() { return $('id=menu_publish') }
+    
 
 
 
@@ -63,6 +64,8 @@ class AdicProdutosScreen {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
         return await this.#btnPublish.click()
     }
+
+  
 
     // Testes de validações
     async getProductName() {
