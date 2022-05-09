@@ -17,7 +17,7 @@ exports.config = {
     capabilities: [{
         "platformName": "Android",
         "platformVersion": "12.0",
-        "deviceName": "TesteEbacs",
+        "deviceName": "TestesEbacs",
         "automationName": "UiAutomator2",
         "app": join(process.cwd(), './app/android/loja-ebac.apk'),
         "appWaitActivity": 'com.woocommerce.android.ui.login.LoginActivity'

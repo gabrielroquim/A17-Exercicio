@@ -4,14 +4,14 @@ const loginScreen = require("../screens/login.screen");
 const myStoreScreen = require("../screens/myStore.screen");
 
 
-let urlLoja = 'http://lojaebac.ebaconline.art.br/'
+let urlLoja = 'http://lojaebac.ebaconline.art.br'
 let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
-let nome = "camisa sonic 356"
-let descricao = "Novo filme do Sonic"
+let nome = "camisa sonic 20"
+let descricao = "Novo filme do Sonic2 3"
 let valor = "98"
 let valor2 = "85"
-let sku = Math.floor(Math.random()*65536)
+let sku = Math.floor(Math.random() * 65536)
 
 
 describe('Access Admin Panel', () => {
@@ -25,7 +25,8 @@ describe('Access Admin Panel', () => {
         await loginScreen.twoFactorLogin(senha)
         await myStoreScreen.clickAddProdutos()
         await myStoreScreen.popup()
-        await adicionaProdutosScreen.clickSimplePhyProduct()
+        await myStoreScreen.store()
+       // await adicionaProdutosScreen.clickSimplePhyProduct()
         await adicionaProdutosScreen.typeName(nome)
         await adicionaProdutosScreen.clickDescribeYourProduct()
         await adicionaProdutosScreen.typeDescription(descricao)
@@ -35,6 +36,7 @@ describe('Access Admin Panel', () => {
         await adicionaProdutosScreen.typePrice(valor, valor2)
         await adicionaProdutosScreen.clickInventory()
         await adicionaProdutosScreen.clickSKU(sku)
+        await adicionaProdutosScreen.clickVoltarProduct()
         await adicionaProdutosScreen.clickPublish()
         await myStoreScreen.store()
 
@@ -45,6 +47,6 @@ describe('Access Admin Panel', () => {
         expect(await adicionaProdutosScreen.getProductName()).toEqual(nome)
         expect(await adicionaProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         expect(await adicionaProdutosScreen.getTypePrice()).toEqual(valor)
-    }
-    );
+        expect(await adicionaProdutosScreen.getNumeSKU()).toEqual(sku)
+    });
 })

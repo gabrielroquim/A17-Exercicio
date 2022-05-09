@@ -22,7 +22,9 @@ class LoginScreen {
         await this.#password.setValue(password)
         await this.#continue.click()
     }
-    async goToTwoFactorAuth() { await this.#twoFactorPasswordBtn.click() }
+    async goToTwoFactorAuth() { 
+        await this.#twoFactorPasswordBtn.waitForExist({ timeout: 20000 })        
+       return await this.#twoFactorPasswordBtn.click() }
     async twoFactorLogin(password) {
         await this.#password.setValue(password)
         await this.#continue.click()

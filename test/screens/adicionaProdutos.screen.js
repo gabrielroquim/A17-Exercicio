@@ -1,5 +1,5 @@
 class AdicProdutosScreen {
-    get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
+    //get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
     get #nomeProduto() { return $('id=editText') }
     get #addDescricaoProduto() { return $('~Edit product') }
     get #descriptionProduto() { return $('id=visualEditor') }
@@ -10,15 +10,17 @@ class AdicProdutosScreen {
     get #textSalePrice() { return $('android=new UiSelector().text("Sale price").className("android.widget.EditText")') }
     get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #voltarProduct() { return $('~Navigate up') }
-    get #goInventory() { return $('android=new UiSelector().text("Inventory").className("android.widget.EditText")') }
+    get #goInventory() { return $('android= new UiSelector().className("android.view.ViewGroup").index(2)') }
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
+    get #voltarProductInventory() { return $('~Navigate up') }
     get #btnPublish() { return $('id=menu_publish') }
 
 
-    async clickSimplePhyProduct() {
-        await this.#simplePhyProduct.waitForExist({ timeout: 20000 })
-        return await this.#simplePhyProduct.click()
-    }
+
+   // async clickSimplePhyProduct() {
+        //await this.#simplePhyProduct.waitForExist({ timeout: 20000 })
+       // return await this.#simplePhyProduct.click()
+ //   }
     async typeName(nome) { return await this.#nomeProduto.setValue(nome) }
     async clickDescribeYourProduct() {
         await this.#addDescricaoProduto.waitForExist({ timeout: 20000 })
@@ -50,7 +52,12 @@ class AdicProdutosScreen {
         await this.#typeSKU.click()
         return await this.#typeSKU.setValue(sku)
     }
-    
+
+    async clickVoltarProduct() {
+        await this.#voltarProductInventory.waitForExist()
+        return await this.#voltarProductInventory.click()
+    }
+
 
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
@@ -71,6 +78,11 @@ class AdicProdutosScreen {
     async getTypePrice() {
         await this.#textRegularPrice.waitForExist({ timeout: 20000 })
         return await this.#textRegularPrice.getText({ timeout: 20000 })
+    }
+
+    async getNumeSKU() {
+        await this.#typeSKU.waitForExist({ timeout: 20000 })
+        return await this.#typeSKU.getText({ timeout: 20000 })
     }
 
 
