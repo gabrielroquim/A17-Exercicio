@@ -20,8 +20,9 @@ class AdicProdutosScreen {
 
     get #btnPublish() { return $('id=menu_publish') }
     get #iconMenu() { return $('id=moreMenu') }
+    get #msgPublish(){return $('id=snackbar_text')}
     get #settings() { return $('~Settings') }
-    get #logout(){ return $('id=btn_option_logout')}
+    get #logout() { return $('android= new UiSelector().className("android.view.ViewGroup").index(16)') }
 
 
 
@@ -77,9 +78,10 @@ class AdicProdutosScreen {
 
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
-        await this.#btnPublish.click()
+        await this.#btnPublish.click()       
         await this.#voltarMenu.waitForExist({ timeout: 20000 })
         return await this.#voltarMenu.click()
+
 
     }
 
@@ -90,9 +92,10 @@ class AdicProdutosScreen {
         await this.#iconMenu.waitForExist({ timeout: 20000 })
         await this.#iconMenu.click()
         await this.#settings.waitForExist({ timeout: 20000 })
-        await this.#settings.click()
-        await this.#logout.waitForExist({ timeout: 20000})
-        await this.#logout.click()
+        await this.#settings.click()          
+        await this.#logout.waitForExist({ timeout: 20000 })
+        return this.#logout.click()
+
     }
 
 
@@ -127,7 +130,12 @@ class AdicProdutosScreen {
         await this.#typeSKU.waitForExist({ timeout: 20000 })
         return await this.#typeSKU.getText({ timeout: 20000 })
     }
+        async msgProductPubli(){
+            await this.#msgPublish.waitForExist()
+            return await this.#msgPublish.getText()
+        }
+    }
 
 
-}
+
 module.exports = new AdicProdutosScreen

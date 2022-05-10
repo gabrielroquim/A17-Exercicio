@@ -41,5 +41,6 @@ describe('Access Admin Panel', () => {
         expect(await adicionaProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         expect(await adicionaProdutosScreen.getTypePrice()).toEqual(valor)
         expect(await adicionaProdutosScreen.getNumeSKU()).toEqual(sku)
+        expect(await adicionaProdutosScreen.msgProductPubli()).toEqual('Product published')
     });
 })
