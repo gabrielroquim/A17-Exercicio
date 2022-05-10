@@ -1,6 +1,5 @@
 class LoginScreen {
     get #enterStoreAddress() { return $('id:button_login_store') }
-
     get #StoreAddress() { return $('android.widget.EditText') }
     get #continue() { return $('id:bottom_button') }
     get #continueStoreAddressCredentials() { return $('id:login_site_creds') }
@@ -10,7 +9,7 @@ class LoginScreen {
 
     async goToLogin() {
         await this.#enterStoreAddress.waitForExist()
-        return this.#enterStoreAddress.click()
+        return await this.#enterStoreAddress.click()
     }
     async setStoreAddress(url) { this.#StoreAddress.setValue(url) }
     async continue() {

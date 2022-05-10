@@ -1,0 +1,36 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1652202995463' stop='1652203005585'>
+    <name>Access Admin Panel</name>
+    <title>Access Admin Panel</title>
+    <test-cases>
+        <test-case start='1652202995463' status='broken' stop='1652203005576'>
+            <name>should login with valid credentials</name>
+            <title>should login with valid credentials</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='TestesEbacs 12.0-12'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='e1bdf293-cf66-4827-a252-2a5653170221-attachment.mp4' type='video/mp4' size='221'/>
+            </attachments>
+            <failure>
+                <message>Can't call elementClick on element with selector "id:bottom_button" because element wasn't found</message>
+                <stack-trace>Error: Can't call elementClick on element with selector "id:bottom_button" because element wasn't found
+                    at implicitWait (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\webdriverio\build\utils\implicitWait.js:34:19)
+                    at async C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\webdriverio\build\utils\refetchElement.js:29:16
+                    at async Element.elementErrorHandlerCallbackFn (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\webdriverio\build\middlewares.js:41:37)
+                    at async Element.wrapCommandFn (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\@wdio\utils\build\shim.js:137:29)
+                    at async Element.wrapCommandFn (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\@wdio\utils\build\shim.js:137:29)
+                    at async Element.elementErrorHandlerCallbackFn (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\webdriverio\build\middlewares.js:24:32)
+                    at async Element.wrapCommandFn (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\node_modules\@wdio\utils\build\shim.js:137:29)
+                    at async LoginScreen.continue (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\test\screens\login.screen.js:17:16)
+                    at async Context.&lt;anonymous> (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\test\specs\cadastroProduto.spec.js:20:9)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
