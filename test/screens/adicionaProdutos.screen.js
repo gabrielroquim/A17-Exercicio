@@ -1,7 +1,5 @@
 class AdicProdutosScreen {
-    //get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
-    get #myStore() { return $('~My store') }
-    get #myStoreName() { return $('id:toolbar_subtitle') }
+    //get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }   
     get #products() { return $('~Products') }
     get #addBtnMais() { return $('~Add products') }
     get #simplePhysical() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
@@ -13,8 +11,7 @@ class AdicProdutosScreen {
     get #priceProduto() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
     get #textSalePrice() { return $('android=new UiSelector().text("Sale price").className("android.widget.EditText")') }
-    get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
-    get #voltarProduct() { return $('~Navigate up') }
+    get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }    
     get #goInventory() { return $('android= new UiSelector().className("android.view.ViewGroup").index(2)') }
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
     get #btnPublish() { return $('id=menu_publish') }
@@ -22,7 +19,7 @@ class AdicProdutosScreen {
     get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
     get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('~android:id/button1') }
+    get #goLogout() { return $('//android.widget.Button[2]') }
 
 
     async myProducts() {
@@ -33,14 +30,14 @@ class AdicProdutosScreen {
         await this.#simplePhysical.waitForExist({ timeout: 20000 })
         await this.#simplePhysical.click()
     }
-    async cadastroProduto(nome, descricao,) {
+    async cadastroProduto(nome, descricao) {
         await this.#getProductTitle.waitForExist({ timeout: 20000 })
         await this.#getProductTitle.setValue(nome)
         await this.#getDescribeProduct.waitForExist({ timeout: 20000 })
         await this.#getDescribeProduct.click()
         await this.#descriptionProduct.waitForExist({ timeout: 20000 })
         await this.#descriptionProduct.setValue(descricao)
-        return await this.#voltarMenu.click()
+        await this.#voltarMenu.click()
     }
     async goPrice() { return await this.#addPriceProduct.click() }
     async clickPriceProduto() { return await this.#priceProduto.click() }
@@ -51,7 +48,7 @@ class AdicProdutosScreen {
         await this.#typePriceProduct.click()
         await this.#typePriceProduct.clearValue()
         await this.#textSalePrice.setValue(valor2)
-        await this.#voltarProduct.click()
+        await this.#voltarMenu.click()
     }
     async clickInventory() {
         await this.#goInventory.waitForExist({ timeout: 20000 })
@@ -61,17 +58,15 @@ class AdicProdutosScreen {
         await this.#typeSKU.waitForExist({ timeout: 20000 })
         await this.#typeSKU.click()
         await this.#typeSKU.setValue(sku)
-        return await this.#voltarMenu.click()
+        await this.#voltarMenu.click()
     }
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
         await this.#btnPublish.click()
         await this.#voltarMenu.waitForExist({ timeout: 20000 })
-        return await this.#voltarMenu.click()
+        await this.#voltarMenu.click()
     }
     async inicioStore() {
-        await this.#myStore.waitForExist({ timeout: 20000 })
-        await this.#myStore.click()
         await this.#iconMenu.waitForExist({ timeout: 20000 })
         await this.#iconMenu.click()
         await this.#settings.waitForExist({ timeout: 20000 })
@@ -79,22 +74,13 @@ class AdicProdutosScreen {
         await driver.execute('mobile: scroll', { direction: 'down', strategy: 'accessibility id', selector: '~btn_option_logout' })
         await this.#logout.click()
         await this.#goLogout.waitForExist({ timeout: 20000 })
-        return await this.#goLogout.click()
+        await this.#goLogout.click()
     }
 
 
 
-    // Testes de validações
+    // Testes de validações     
 
-
-    async myStoreLogoDisplayed() {
-        await this.#myStore.waitForExist({ timeout: 20000 })
-        return await this.#myStore.isDisplayed()
-    }
-    async getStoreName() {
-        await this.#myStoreName.waitForExist({ timeout: 20000 })
-        return await this.#myStoreName.getText()
-    }
     async getProductName() {
         await this.#getProductTitle.waitForExist({ timeout: 20000 })
         return await this.#getProductTitle.getText()
@@ -107,16 +93,21 @@ class AdicProdutosScreen {
 
     async getTypePrice() {
         await this.#textRegularPrice.waitForExist({ timeout: 20000 })
-        return await this.#textRegularPrice.getText({ timeout: 20000 })
+        return await this.#textRegularPrice.getText()
     }
 
     async getNumeSKU() {
         await this.#typeSKU.waitForExist({ timeout: 20000 })
-        return await this.#typeSKU.getText({ timeout: 20000 })
+        return await this.#typeSKU.getText()
     }
     async msgProductPubli() {
         await this.#msgPublish.waitForExist()
         return await this.#msgPublish.getText()
+    }
+
+    async msgSettings() {
+        await this.#settings.waitForExist({ timeout: 20000 })
+        return await this.#settings.get
     }
 
     async msgLogout() {

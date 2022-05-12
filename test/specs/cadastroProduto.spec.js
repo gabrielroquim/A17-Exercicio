@@ -8,9 +8,9 @@ let urlLoja = 'http://lojaebac.ebaconline.art.br'
 let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let nome = "camisa Ciclop"
-let descricao = "Camisa GG com Marvel Studios"
-let valor = faker.commerce.price({min: 50, max:150})
-let valor2 = faker.commerce.price({min:20, max:48})
+let descricao = faker.commerce.productAdjective()
+let valor = faker.commerce.price()
+let valor2 = faker.commerce.price()/2
 let sku = Math.floor(Math.random() * 65536)
 
 
@@ -22,7 +22,7 @@ describe('Access Admin Panel', () => {
         await loginScreen.continueCredentials()
         await loginScreen.login(usuario, senha)
         await loginScreen.goToTwoFactorAuth()
-        await loginScreen.twoFactorLogin(senha)
+        await loginScreen.twoFactorLogin(senha)      
         await adicionaProdutosScreen.myProducts()
         await adicionaProdutosScreen.cadastroProduto(nome, descricao)      
         await adicionaProdutosScreen.goPrice()
@@ -34,15 +34,14 @@ describe('Access Admin Panel', () => {
         await adicionaProdutosScreen.inicioStore()
 
 
-        // vai fazer as comparações 
-        expect(await adicionaProdutosScreen.myStoreLogoDisplayed()).toBeTruthy()
-        expect(await adicionaProdutosScreen.getStoreName()).toEqual('EBAC - Shop')
-        expect(await adicionaProdutosScreen.getProductName()).toEqual(nome)
-        expect(await adicionaProdutosScreen.getDescriptionProduct()).toEqual(descricao)
-        expect(await adicionaProdutosScreen.getTypePrice()).toEqual(valor)
-        expect(await adicionaProdutosScreen.getNumeSKU()).toEqual(sku)
-        expect(await adicionaProdutosScreen.msgProductPubli()).toEqual('Product published')
-        expect(await adicionaProdutosScreen.msgLogout()).toEqual('LOG OUT')
+        // vai fazer as comparações      
+
+     await expect(await adicionaProdutosScreen.getProductName()).toEqual(nome)
+     await expect(await adicionaProdutosScreen.getDescriptionProduct()).toEqual(descricao)
+     await expect(await adicionaProdutosScreen.getTypePrice()).toEqual(valor)
+     await expect(await adicionaProdutosScreen.getNumeSKU()).toEqual(sku)
+     await expect(await adicionaProdutosScreen.msgProductPubli()).toEqual('Product published')
+     await expect(await adicionaProdutosScreen.msgLogout()).toEqual('LOG OUT')
 
     });
 })
