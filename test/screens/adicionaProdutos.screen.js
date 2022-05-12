@@ -17,21 +17,13 @@ class AdicProdutosScreen {
     get #voltarProduct() { return $('~Navigate up') }
     get #goInventory() { return $('android= new UiSelector().className("android.view.ViewGroup").index(2)') }
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
-
     get #btnPublish() { return $('id=menu_publish') }
     get #iconMenu() { return $('id=moreMenu') }
     get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
     get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('id=button1') }
+    get #goLogout() { return $('android:id/button1') }
 
-
-
-
-    // async clickSimplePhyProduct() {
-    //await this.#simplePhyProduct.waitForExist({ timeout: 20000 })
-    // return await this.#simplePhyProduct.click()
-    //   }
 
     async myProducts() {
         await this.#products.waitForExist({ timeout: 20000 })
@@ -50,9 +42,6 @@ class AdicProdutosScreen {
         await this.#descriptionProduct.setValue(descricao)
         return await this.#voltarMenu.click()
     }
-
-
-
     async goPrice() { return await this.#addPriceProduct.click() }
     async clickPriceProduto() { return await this.#priceProduto.click() }
     async typePrice(valor, valor2) {
@@ -64,7 +53,6 @@ class AdicProdutosScreen {
         await this.#textSalePrice.setValue(valor2)
         await this.#voltarProduct.click()
     }
-
     async clickInventory() {
         await this.#goInventory.waitForExist({ timeout: 20000 })
         return await this.#goInventory.click()
@@ -75,18 +63,12 @@ class AdicProdutosScreen {
         await this.#typeSKU.setValue(sku)
         return await this.#voltarMenu.click()
     }
-
-
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
         await this.#btnPublish.click()
         await this.#voltarMenu.waitForExist({ timeout: 20000 })
         return await this.#voltarMenu.click()
-
-
     }
-
-
     async inicioStore() {
         await this.#myStore.waitForExist({ timeout: 20000 })
         await this.#myStore.click()
@@ -98,8 +80,6 @@ class AdicProdutosScreen {
         await this.#logout.click()
         await this.#goLogout.waitForExist({ timeout: 20000 })
         return await this.#goLogout.click()
-
-
     }
 
 
@@ -139,7 +119,7 @@ class AdicProdutosScreen {
         return await this.#msgPublish.getText()
     }
 
-    async msgLogout(){
+    async msgLogout() {
         await this.#goLogout.waitForExist({ timeout: 20000 })
         return await this.#goLogout.getText()
     }

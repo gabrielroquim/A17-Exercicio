@@ -1,14 +1,14 @@
 const adicionaProdutosScreen = require("../screens/adicionaProdutos.screen");
 const loginScreen = require("../screens/login.screen");
 
-
+var faker = require('faker-br');
 
 let urlLoja = 'http://lojaebac.ebaconline.art.br'
 let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
-let nome = "camisa Batman"
-let descricao = "Camisa GG batman vx super"
-let valor = "98"
+let nome = "camisa Ciclop"
+let descricao = "Camisa GG com Marvel Studios"
+let valor = faker.commerce.price
 let valor2 = "85"
 let sku = Math.floor(Math.random() * 65536)
 
@@ -33,8 +33,7 @@ describe('Access Admin Panel', () => {
         await adicionaProdutosScreen.inicioStore()
 
 
-
-        // vai fazer 
+        // vai fazer as comparações 
         expect(await adicionaProdutosScreen.myStoreLogoDisplayed()).toBeTruthy()
         expect(await adicionaProdutosScreen.getStoreName()).toEqual('EBAC - Shop')
         expect(await adicionaProdutosScreen.getProductName()).toEqual(nome)
@@ -42,7 +41,7 @@ describe('Access Admin Panel', () => {
         expect(await adicionaProdutosScreen.getTypePrice()).toEqual(valor)
         expect(await adicionaProdutosScreen.getNumeSKU()).toEqual(sku)
         expect(await adicionaProdutosScreen.msgProductPubli()).toEqual('Product published')
-        expect(await adicionaProdutosScreen.msgLogout()).toEqual('Are you sure you want to logout from the account Loja EBAC?')
+        expect(await adicionaProdutosScreen.msgLogout()).toEqual('LOG OUT')
 
     });
 })
