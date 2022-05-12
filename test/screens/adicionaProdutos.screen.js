@@ -39,9 +39,14 @@ class AdicProdutosScreen {
         await this.#descriptionProduct.setValue(descricao)
         await this.#voltarMenu.click()
     }
-    async goPrice() { return await this.#addPriceProduct.click() }
-    async clickPriceProduto() { return await this.#priceProduto.click() }
-    async typePrice(valor, valor2) {
+    
+    
+    async typePrice(valor, valor2) {   
+        await this.#addPriceProduct.waitForExist({ timeout: 20000 })     
+        await this.#addPriceProduct.click()
+        await this.#priceProduto.waitForExist({ timeout: 20000 })
+        await this.#priceProduto.click()
+        await this.#typePriceProduct.waitForExist({ timeout: 20000 })
         await this.#typePriceProduct.click()
         await this.#typePriceProduct.clearValue()
         await this.#textRegularPrice.setValue(valor)
@@ -52,14 +57,13 @@ class AdicProdutosScreen {
     }
     async clickInventory() {
         await this.#goInventory.waitForExist({ timeout: 20000 })
-        return await this.#goInventory.click()
-    }
-    async clickSKU(sku) {
+        await this.#goInventory.click()
         await this.#typeSKU.waitForExist({ timeout: 20000 })
         await this.#typeSKU.click()
         await this.#typeSKU.setValue(sku)
         await this.#voltarMenu.click()
     }
+    
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
         await this.#btnPublish.click()
