@@ -20,9 +20,10 @@ class AdicProdutosScreen {
 
     get #btnPublish() { return $('id=menu_publish') }
     get #iconMenu() { return $('id=moreMenu') }
-    get #msgPublish(){return $('id=snackbar_text')}
+    get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
-    get #logout() { return $('android= new UiSelector().className("android.view.ViewGroup").index(16)') }
+    get #logout() { return $('id=btn_option_logout') }
+    get #goLogout() { return $('id=button1') }
 
 
 
@@ -78,7 +79,7 @@ class AdicProdutosScreen {
 
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
-        await this.#btnPublish.click()       
+        await this.#btnPublish.click()
         await this.#voltarMenu.waitForExist({ timeout: 20000 })
         return await this.#voltarMenu.click()
 
@@ -92,9 +93,12 @@ class AdicProdutosScreen {
         await this.#iconMenu.waitForExist({ timeout: 20000 })
         await this.#iconMenu.click()
         await this.#settings.waitForExist({ timeout: 20000 })
-        await this.#settings.click()          
-        await this.#logout.waitForExist({ timeout: 20000 })
-        return this.#logout.click()
+        await this.#settings.click()
+        await driver.execute('mobile: scroll', { direction: 'down', strategy: 'accessibility id', selector: '~btn_option_logout' })
+        await this.#logout.click()
+        await this.#goLogout.waitForExist({ timeout: 20000 })
+        return await this.#goLogout.click()
+
 
     }
 
@@ -130,11 +134,16 @@ class AdicProdutosScreen {
         await this.#typeSKU.waitForExist({ timeout: 20000 })
         return await this.#typeSKU.getText({ timeout: 20000 })
     }
-        async msgProductPubli(){
-            await this.#msgPublish.waitForExist()
-            return await this.#msgPublish.getText()
-        }
+    async msgProductPubli() {
+        await this.#msgPublish.waitForExist()
+        return await this.#msgPublish.getText()
     }
+
+    async msgLogout(){
+        await this.#goLogout.waitForExist({ timeout: 20000 })
+        return await this.#goLogout.getText()
+    }
+}
 
 
 
