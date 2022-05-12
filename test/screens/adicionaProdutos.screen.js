@@ -22,7 +22,7 @@ class AdicProdutosScreen {
     get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
     get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('android:id/button1') }
+    get #goLogout() { return $('~android:id/button1') }
 
 
     async myProducts() {

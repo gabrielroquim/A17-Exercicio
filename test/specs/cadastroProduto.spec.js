@@ -3,13 +3,14 @@ const loginScreen = require("../screens/login.screen");
 
 var faker = require('faker-br');
 
+
 let urlLoja = 'http://lojaebac.ebaconline.art.br'
 let usuario = 'gerente'
 let senha = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let nome = "camisa Ciclop"
 let descricao = "Camisa GG com Marvel Studios"
-let valor = faker.commerce.price
-let valor2 = "85"
+let valor = faker.commerce.price({min: 50, max:150})
+let valor2 = faker.commerce.price({min:20, max:48})
 let sku = Math.floor(Math.random() * 65536)
 
 
