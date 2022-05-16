@@ -1,4 +1,4 @@
-class LoginScreen {
+class loginScreen {
     get #enterStoreAddress() { return $('id:button_login_store') }
     //get #storeAddress() { return $('android.widget.EditText') }
     get #storeAddress() { return $('id:input') }    
@@ -38,4 +38,4 @@ class LoginScreen {
 }
 
 
-module.exports = new LoginScreen()
+module.exports = new loginScreen
