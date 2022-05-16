@@ -2,6 +2,7 @@ const adicionaProdutosScreen = require("../screens/adicionaProdutos.screen");
 const loginScreen = require("../screens/login.screen");
 
 var faker = require('faker-br');
+const productsScreen = require("../screens/products.screen");
 
 
 let urlLoja = 'http://lojaebac.ebaconline.art.br'
@@ -16,10 +17,12 @@ let sku = Math.floor(Math.random() * 65536)
 
 describe('Access Admin Panel', () => {
     it('should login with valid credentials', async () => {
-        await loginScreen.goToLogin()
-        await loginScreen.setStoreAddress(urlLoja, username, password)
-        await adicionaProdutosScreen.myProducts()
+        await loginScreen.goToLogin(urlLoja, username, password)
+      //  expect(await loginScreen.getTextURL().toEqual(urlLoja))        
+        await productsScreen.clickAddProduct.click()
+        expect (await productsScreen.productLogos().toEqual("Products"))              
         await adicionaProdutosScreen.cadastroProduto(nome, descricao)
+        expect (await adicionaProdutosScreen.textMyProducts().toEqual("Products")) 
         await adicionaProdutosScreen.typePrice(valor, valor2)
         await adicionaProdutosScreen.clickInventory(sku)   
         await adicionaProdutosScreen.clickPublish()

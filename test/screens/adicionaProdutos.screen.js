@@ -1,8 +1,5 @@
 class AdicProdutosScreen {
-    //get #simplePhyProduct() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }   
-    get #products() { return $('~Products') }
-    get #addBtnMais() { return $('~Add products') }
-    get #simplePhysical() { return $('android=new UiSelector().index(0).className("android.view.ViewGroup")') }
+    get #newProductLogo(){ return$('new UiSelector().text("New Product").className("android.view.View")')}
     get #getProductTitle() { return $('id=editText') }
     get #getDescribeProduct() { return $('~Edit product') }
     get #descriptionProduct() { return $('id=visualEditor') }
@@ -21,16 +18,9 @@ class AdicProdutosScreen {
     get #logout() { return $('id=btn_option_logout') }
     get #goLogout() { return $('//android.widget.Button[2]') }
 
-
-    async myProducts() {
-        await this.#products.waitForExist({ timeout: 20000 })
-        await this.#products.click()
-        await this.#addBtnMais.waitForExist({ timeout: 20000 })
-        await this.#addBtnMais.click()
-        await this.#simplePhysical.waitForExist({ timeout: 20000 })
-        await this.#simplePhysical.click()
-    }
-    async cadastroProduto(nome, descricao) {
+ 
+    
+    async cadastroProduto(nome, descricao) {       
         await this.#getProductTitle.waitForExist({ timeout: 20000 })
         await this.#getProductTitle.setValue(nome)
         await this.#getDescribeProduct.waitForExist({ timeout: 20000 })
@@ -118,6 +108,11 @@ class AdicProdutosScreen {
         await this.#goLogout.waitForExist({ timeout: 20000 })
         return await this.#goLogout.getText()
     }
+
+   async textMyProducts(){
+        await this.#newProductLogo.waitForExist({ timeout: 20000 })
+    await this.#newProductLogo.getText()
+   }
 }
 
 
