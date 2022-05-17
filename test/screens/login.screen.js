@@ -1,11 +1,10 @@
 class loginScreen {
-    get #enterStoreAddress() { return $('id:button_login_store') }
-    //get #storeAddress() { return $('android.widget.EditText') }
-    get #storeAddress() { return $('id:input') }    
+    get #enterStoreAddress() { return $('id:button_login_store') }  
+    get #storeAddress() { return $('android.widget.EditText') }   
+    get #continue() { return $('id:bottom_button') } 
     get #addressCredentials() { return $('id:login_site_creds') }    
     get #userName() { return $('android=new UiSelector().text("Username")') }
-    get #password() { return $('android=new UiSelector().text("Password")') }
-    get #continue() { return $('id:bottom_button') }
+    get #password() { return $('android=new UiSelector().text("Password")') }    
     get #twoFactorPasswordBtn() { return $('id:login_enter_password') }
 
     async goToLogin(urlLoja, username, password) {
@@ -30,10 +29,12 @@ class loginScreen {
         await this.#continue.waitForExist({ timeout: 20000 })
         await this.#continue.click()
     }
-    async getTextURL() {
-        await this.#storeAddress.waitForExist({ timeout: 20000 })
-        return await  this.#storeAddress.getText(urlLoja)
-    }
+
+    
+  //  async getTextURL() {
+     //   await this.#storeAddress.waitForExist({ timeout: 20000 })
+      //  return await  this.#storeAddress.getText(urlLoja)
+   // }
 
 }
 

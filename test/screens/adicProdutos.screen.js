@@ -1,6 +1,6 @@
 class adicProdutosScreen {
-    get #newProductLogo() { return$('new UiSelector().text("New Product").className("android.view.View")') }
-    get #getProductTitle() { return $('id=editText') }
+   // get #newProductLogo() { return$('new UiSelector().text("New Product").className("android.view.View")') }
+    get #getProductTitle() { return $('android=new UiSelector().className("android.view.ViewGroup").index(0)') }
     get #getDescribeProduct() { return $('~Edit product') }
     get #descriptionProduct() { return $('id=visualEditor') }
     get #voltarMenu() { return $('~Navigate up') }
