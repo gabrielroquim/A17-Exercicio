@@ -16,13 +16,14 @@ let sku = Math.floor(Math.random() * 65536)
 
 describe('Access Admin Panel', () => {
     it('Login', async () => {
+        
         await loginScreen.goToLogin(urlLoja, username, password)
         expect(await myStoreScreen.ebacShop()).toEqual("EBAC - Shop")
         // expect(await loginScreen.getTextURL()).toEqual(urlLoja) 
         await myStoreScreen.clickAddProduct()
         await adicProdutosScreen.cadastroProduto(nome, descricao)
         expect(await adicProdutosScreen.getProductName()).toEqual("Agasalho jhony quest")
-        expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
+        await expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         await adicProdutosScreen.typePrice(valor, valor2)
         expect(await adicProdutosScreen.getTypePrice()).toEqual(valor)
         await adicProdutosScreen.clickInventory(sku)

@@ -1,9 +1,10 @@
 class adicProdutosScreen {
    // get #newProductLogo() { return$('new UiSelector().text("New Product").className("android.view.View")') }
-    get #getProductTitle() { return $('android=new UiSelector().className("android.view.ViewGroup").index(0)') }
+    get #getProductTitle() { return $('id=editText') }
     get #getDescribeProduct() { return $('~Edit product') }
     get #descriptionProduct() { return $('id=visualEditor') }
     get #voltarMenu() { return $('~Navigate up') }
+    get #textDescri(){return $('id:textPropertyValue')}
     get #addPriceProduct() { return $('android=new UiSelector().text("Add price").className("android.widget.TextView")') }
     get #priceProduto() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
@@ -25,7 +26,7 @@ class adicProdutosScreen {
         await this.#getProductTitle.setValue(nome)
         await this.#getDescribeProduct.waitForExist({ timeout: 20000 })
         await this.#getDescribeProduct.click()
-        await this.#descriptionProduct.waitForExist({ timeout: 20000 })
+        await this.#descriptionProduct.waitForExist({ timeout: 30000 })
         await this.#descriptionProduct.setValue(descricao)
         await this.#voltarMenu.click()
     }
@@ -81,8 +82,8 @@ class adicProdutosScreen {
     }
 
     async getDescriptionProduct() {
-        await this.#descriptionProduct.waitForExist({ timeout: 20000 })
-        return await this.#descriptionProduct.getText()
+        await this.#textDescri.waitForExist({ timeout: 30000 })
+        return await this.#textDescri.getText()
     }
 
     async getTypePrice() {
