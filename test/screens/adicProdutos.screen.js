@@ -9,6 +9,7 @@ class adicProdutosScreen {
     get #priceProduto() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
     get #textSalePrice() { return $('android=new UiSelector().text("Sale price").className("android.widget.EditText")') }
+    get #validaRegularPrice(){ return $('//android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText')}
     get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #goInventory() { return $('android= new UiSelector().className("android.view.ViewGroup").index(2)') }
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
@@ -41,9 +42,11 @@ class adicProdutosScreen {
         await this.#typePriceProduct.click()
         await this.#typePriceProduct.clearValue()
         await this.#textRegularPrice.setValue(valor)
-        await this.#typePriceProduct.click()
+        await this.#typePriceProduct.click()        
         await this.#typePriceProduct.clearValue()
         await this.#textSalePrice.setValue(valor2)
+        await this.#validaRegularPrice.waitForExist({ timeout: 20000 })
+        await this.#validaRegularPrice.getText()
         await this.#voltarMenu.click()
     }
     async clickInventory(sku) {
@@ -86,10 +89,10 @@ class adicProdutosScreen {
         return await this.#textDescri.getText()
     }
 
-    async getTypePrice() {
-        await this.#textRegularPrice.waitForExist({ timeout: 20000 })
-        return await this.#textRegularPrice.getText()
-    }
+    //async getTypePrice() {
+     //   await this.#textRegularPrice.waitForExist({ timeout: 20000 })
+       // return await this.#textRegularPrice.getText()
+   // }
 
     async getNumeSKU() {
         await this.#typeSKU.waitForExist({ timeout: 20000 })

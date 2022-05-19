@@ -25,7 +25,7 @@ describe('Access Admin Panel', () => {
         expect(await adicProdutosScreen.getProductName()).toEqual("Agasalho jhony quest")
         await expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         await adicProdutosScreen.typePrice(valor, valor2)
-        expect(await adicProdutosScreen.getTypePrice()).toEqual(valor)
+       await expect(await adicProdutosScreen.typePrice()).toEqual(valor)
         await adicProdutosScreen.clickInventory(sku)
         expect(await adicProdutosScreen.getNumeSKU()).toEqual(sku)
         await adicProdutosScreen.clickPublish()
