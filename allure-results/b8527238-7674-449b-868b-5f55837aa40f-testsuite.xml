@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1653403254327' stop='1653403330856'>
+    <name>Access Admin Panel</name>
+    <title>Access Admin Panel</title>
+    <test-cases>
+        <test-case start='1653403254328' status='failed' stop='1653403330831'>
+            <name>Login</name>
+            <title>Login</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='device' value='TestesEbacs 12.0-12'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='1439ab21-76e2-4924-856d-6196bc6a0032-attachment.mp4' type='video/mp4' size='191'/>
+            </attachments>
+            <failure>
+                <message>expect(received).toEqual(expected) // deep equality
+                
+                Expected: "203.00"
+                Received: undefined</message>
+                <stack-trace>Error: expect(received).toEqual(expected) // deep equality
+                
+                Expected: "203.00"
+                Received: undefined
+                    at Context.&lt;anonymous> (C:\Users\Gabriel Roquim QA\OneDrive\EBAC\Módulo 17 - Testes Mobile - Parte 2\MobileShop\A17-Exercicio\test\specs\cadastroProduto.spec.js:28:60)
+                    at processTicksAndRejections (node:internal/process/task_queues:96:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
