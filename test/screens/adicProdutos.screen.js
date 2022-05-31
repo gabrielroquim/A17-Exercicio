@@ -8,16 +8,16 @@ class adicProdutosScreen {
     get #addPriceProduct() { return $('android= new UiSelector().className("android.view.ViewGroup").index(0).instance(8)') }
     get #textRegularPrice() { return $('android=new UiSelector().text("Regular price").className("android.widget.EditText")') }
     get #textSalePrice() { return $('android=new UiSelector().text("Sale price").className("android.widget.EditText")') }
-    get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }    
+    get #typePriceProduct() { return $('android=new UiSelector().text("0").className("android.widget.EditText")') }
     get #goInventory() { return $('android= new UiSelector().className("android.view.ViewGroup").index(2)') }
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
-    get #numberSku(){return $('android= new UiSelector().className("android.widget.TextView").index(2).instance(1)')}
+    get #numberSku() { return $('android= new UiSelector().className("android.widget.TextView").index(2).instance(1)') }
     get #btnPublish() { return $('id=menu_publish') }
     get #iconMenu() { return $('id=moreMenu') }
     get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
     get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('//android.widget.Button[2]') }
+    get #goLogout() { return $('~button1') }
 
 
 
@@ -45,7 +45,6 @@ class adicProdutosScreen {
         await this.#goInventory.waitForExist({ timeout: 20000 })
         await this.#goInventory.click()
         await this.#typeSKU.waitForExist({ timeout: 30000 })
-       // await this.#typeSKU.click()
         await this.#typeSKU.setValue(sku)
         await this.#voltarMenu.click()
     }
@@ -63,11 +62,11 @@ class adicProdutosScreen {
         await this.#settings.waitForExist({ timeout: 20000 })
         await this.#settings.click()
         await driver.execute('mobile: scroll', { direction: 'down', strategy: 'accessibility id', selector: '~btn_option_logout' })
+        await this.#logout.waitForExist({ timeout: 30000 })
         await this.#logout.click()
-        await this.#goLogout.waitForExist({ timeout: 20000 })
+        await this.#goLogout.waitForExist({ timeout: 30000 })
         await this.#goLogout.click()
     }
-
 
 
     // Testes de validações     
@@ -90,15 +89,7 @@ class adicProdutosScreen {
         return await this.#msgPublish.getText()
     }
 
-    async msgSettings() {
-        await this.#settings.waitForExist({ timeout: 20000 })
-        return await this.#settings.get
-    }
-
-    async msgLogout() {
-        await this.#goLogout.waitForExist({ timeout: 20000 })
-        return await this.#goLogout.getText()
-    }
+ 
 
 
 }

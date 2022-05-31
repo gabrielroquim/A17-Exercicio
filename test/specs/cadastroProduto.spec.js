@@ -9,7 +9,7 @@ let username = 'gerente'
 let password = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let nome = "Agasalho jhony quest"
 let descricao = faker.commerce.productAdjective()
-let valor = Math.trunc(faker.commerce.price() * 2.00)
+let valor = Math.trunc(faker.commerce.price() * 40.00)
 let valor2 = Math.trunc(faker.commerce.price())
 let sku = Math.floor(Math.random() * 65536)
 
@@ -25,20 +25,12 @@ describe('Access Admin Panel', () => {
         await expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         await adicProdutosScreen.typePrice(valor, valor2)        
         await adicProdutosScreen.clickInventory(sku)
-        expect(await adicProdutosScreen.getNumeSKU()).toContain('SKU: ' + sku + 
-        ' Stock status: In stock')
+        expect(await adicProdutosScreen.getNumeSKU()).toContain('SKU: ' + sku, ' Stock status: In stock')
         await adicProdutosScreen.clickPublish()
         expect(await adicProdutosScreen.msgProductPubli()).toEqual('Product published')
-        await adicProdutosScreen.inicioStore()
-        expect(await adicProdutosScreen.msgLogout()).toEqual('LOG OUT')
-
-        // vai fazer as comparações      
+        await adicProdutosScreen.inicioStore()            
 
 
     });
-
-
-
-
 
 })
