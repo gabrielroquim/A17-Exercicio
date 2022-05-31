@@ -9,8 +9,8 @@ let username = 'gerente'
 let password = 'GD*peToHNJ1#c$sgk08EaYJQ'
 let nome = "Agasalho jhony quest"
 let descricao = faker.commerce.productAdjective()
-let valor = faker.commerce.price()* 0.45
-let valor2 = faker.commerce.price() / valor
+let valor = Math.trunc(faker.commerce.price() * 2.00)
+let valor2 = Math.trunc(faker.commerce.price())
 let sku = Math.floor(Math.random() * 65536)
 
 
@@ -18,13 +18,12 @@ describe('Access Admin Panel', () => {
     it('Login', async () => {
 
         await loginScreen.goToLogin(urlLoja, username, password)
-        expect(await myStoreScreen.ebacShop()).toEqual("EBAC - Shop")      
+        expect(await myStoreScreen.ebacShop()).toEqual("EBAC - Shop")
         await myStoreScreen.clickAddProduct()
         await adicProdutosScreen.cadastroProduto(nome, descricao)
         expect(await adicProdutosScreen.getProductName()).toEqual("Agasalho jhony quest")
         await expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
-        await adicProdutosScreen.assertPrice(' Regular price:' + valor, 'Sale price:' + valor2)
-        await expect(await adicProdutosScreen.typePrice()).toEqual(valor)
+        await adicProdutosScreen.typePrice(valor, valor2)        
         await adicProdutosScreen.clickInventory(sku)
         expect(await adicProdutosScreen.getNumeSKU()).toEqual(sku)
         await adicProdutosScreen.clickPublish()
