@@ -1,5 +1,4 @@
-class adicProdutosScreen {
-    // get #newProductLogo() { return$('new UiSelector().text("New Product").className("android.view.View")') }
+class adicProdutosScreen {    
     get #getProductTitle() { return $('id=editText') }
     get #getDescribeProduct() { return $('~Edit product') }
     get #descriptionProduct() { return $('id=visualEditor') }
@@ -17,7 +16,7 @@ class adicProdutosScreen {
     get #msgPublish() { return $('id=snackbar_text') }
     get #settings() { return $('~Settings') }
     get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('~button1') }
+    get #goLogout() { return $('android= new UiSelector().className("android.widget.Button").index(1)') }
 
 
 
@@ -85,11 +84,9 @@ class adicProdutosScreen {
         return await this.#numberSku.getText()
     }
     async msgProductPubli() {
-        await this.#msgPublish.waitForExist()
+        await this.#msgPublish.waitForExist({ timeout: 30000 })
         return await this.#msgPublish.getText()
     }
-
- 
 
 
 }
