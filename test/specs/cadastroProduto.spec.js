@@ -25,7 +25,8 @@ describe('Access Admin Panel', () => {
         await expect(await adicProdutosScreen.getDescriptionProduct()).toEqual(descricao)
         await adicProdutosScreen.typePrice(valor, valor2)        
         await adicProdutosScreen.clickInventory(sku)
-        expect(await adicProdutosScreen.getNumeSKU()).toEqual(sku)
+        expect(await adicProdutosScreen.getNumeSKU()).toContain('SKU: ' + sku + 
+        ' Stock status: In stock')
         await adicProdutosScreen.clickPublish()
         expect(await adicProdutosScreen.msgProductPubli()).toEqual('Product published')
         await adicProdutosScreen.inicioStore()
