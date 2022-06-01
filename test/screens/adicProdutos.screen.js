@@ -1,4 +1,4 @@
-class adicProdutosScreen {    
+class adicProdutosScreen {
     get #getProductTitle() { return $('id=editText') }
     get #getDescribeProduct() { return $('~Edit product') }
     get #descriptionProduct() { return $('id=visualEditor') }
@@ -12,11 +12,8 @@ class adicProdutosScreen {
     get #typeSKU() { return $('android=new UiSelector().className("android.widget.EditText").text("SKU")') }
     get #numberSku() { return $('android= new UiSelector().className("android.widget.TextView").index(2).instance(1)') }
     get #btnPublish() { return $('id=menu_publish') }
-    get #iconMenu() { return $('id=moreMenu') }
     get #msgPublish() { return $('id=snackbar_text') }
-    get #settings() { return $('~Settings') }
-    get #logout() { return $('id=btn_option_logout') }
-    get #goLogout() { return $('android= new UiSelector().className("android.widget.Button").index(1)') }
+
 
 
 
@@ -45,26 +42,17 @@ class adicProdutosScreen {
         await this.#goInventory.click()
         await this.#typeSKU.waitForExist({ timeout: 30000 })
         await this.#typeSKU.setValue(sku)
-        await this.#voltarMenu.click()
+        return await this.#voltarMenu.click()
     }
 
     async clickPublish() {
         await this.#btnPublish.waitForExist({ timeout: 20000 })
-        await this.#btnPublish.click()
-        await this.#voltarMenu.waitForExist({ timeout: 20000 })
-        await this.#voltarMenu.click()
+        return await this.#btnPublish.click()
     }
 
     async inicioStore() {
-        await this.#iconMenu.waitForExist({ timeout: 20000 })
-        await this.#iconMenu.click()
-        await this.#settings.waitForExist({ timeout: 20000 })
-        await this.#settings.click()
-        await driver.execute('mobile: scroll', { direction: 'down', strategy: 'accessibility id', selector: '~btn_option_logout' })
-        await this.#logout.waitForExist({ timeout: 30000 })
-        await this.#logout.click()
-        await this.#goLogout.waitForExist({ timeout: 30000 })
-        await this.#goLogout.click()
+        await this.#voltarMenu.waitForExist({ timeout: 20000 })
+        return await this.#voltarMenu.click()
     }
 
 
@@ -84,7 +72,7 @@ class adicProdutosScreen {
         return await this.#numberSku.getText()
     }
     async msgProductPubli() {
-        await this.#msgPublish.waitForExist({ timeout: 30000 })
+        await this.#msgPublish.waitForExist({ timeout: 20000 })
         return await this.#msgPublish.getText()
     }
 
