@@ -9,7 +9,7 @@ ipeline{
     stages{
         stage('Clonar o repositório'){
             steps{
-                git branch: 'main', url: 'https://github.com/gabrielroquim/A17-Exercicio.git'
+                git branch: 'master', url: 'https://github.com/gabrielroquim/A17-Exercicio.git'
             }
         }
         

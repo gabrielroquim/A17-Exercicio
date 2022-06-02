@@ -21,6 +21,7 @@
         "allure-commandline": "^2.17.2",
         "appium": "^1.22.3",
         "faker-br": "^0.4.1",
+        "wd": "^1.14.0",
         "wdio-video-reporter": "^3.2.1"
     }
 }

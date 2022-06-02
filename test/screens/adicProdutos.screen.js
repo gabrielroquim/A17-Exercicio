@@ -15,8 +15,6 @@ class adicProdutosScreen {
     get #msgPublish() { return $('id=snackbar_text') }
 
 
-
-
     async cadastroProduto(nome, descricao) {
         await this.#getProductTitle.waitForExist({ timeout: 20000 })
         await this.#getProductTitle.setValue(nome)
@@ -24,6 +22,7 @@ class adicProdutosScreen {
         await this.#getDescribeProduct.click()
         await this.#descriptionProduct.waitForExist({ timeout: 30000 })
         await this.#descriptionProduct.setValue(descricao)
+        await this.#voltarMenu.waitForExist({ timeout: 30000 })
         await this.#voltarMenu.click()
     }
 
@@ -34,6 +33,7 @@ class adicProdutosScreen {
         await this.#textRegularPrice.setValue(valor)
         await this.#typePriceProduct.clearValue()
         await this.#textSalePrice.setValue(valor2)
+        await this.#voltarMenu.waitForExist({ timeout: 30000 })
         await this.#voltarMenu.click()
     }
 
@@ -42,6 +42,7 @@ class adicProdutosScreen {
         await this.#goInventory.click()
         await this.#typeSKU.waitForExist({ timeout: 30000 })
         await this.#typeSKU.setValue(sku)
+        await this.#voltarMenu.waitForExist({ timeout: 30000 })
         return await this.#voltarMenu.click()
     }
 
