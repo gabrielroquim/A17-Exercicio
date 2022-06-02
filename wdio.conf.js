@@ -1,4 +1,4 @@
-const { join } = require('path')
+
 const allure = require('allure-commandline')
 const video = require('wdio-video-reporter')
 

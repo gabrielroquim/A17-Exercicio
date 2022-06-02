@@ -50,11 +50,7 @@ class adicProdutosScreen {
         return await this.#btnPublish.click()
     }
 
-    async inicioStore() {
-        await this.#voltarMenu.waitForExist({ timeout: 20000 })
-        return await this.#voltarMenu.click()
-    }
-
+   
 
     // Testes de validações     
 
@@ -72,8 +68,8 @@ class adicProdutosScreen {
         return await this.#numberSku.getText()
     }
     async msgProductPubli() {
-        await this.#msgPublish.waitForExist({ timeout: 20000 })
-        return await this.#msgPublish.getText()
+      await this.#msgPublish.waitForExist({ timeout: 20000 })
+       return await this.#msgPublish.getText()
     }
 
 
